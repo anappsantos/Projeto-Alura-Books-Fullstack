@@ -1,0 +1,21 @@
+{
+  "name": "alura-books-server",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ana Paula Santos",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "connect-livereload": "^0.6.1",
+    "livereload": "^0.10.3",
+    "nodemon": "^3.1.10",
+    "open": "^10.2.0"
+  },
+  "description": ""
+}
