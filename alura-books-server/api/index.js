@@ -6,11 +6,10 @@ const cors = require("cors")
 
 const app = express()
 app.use(express.json())
-app.use(cors({origin: "*"}))
+app.use(cors())
 
 app.use("/livros", rotaLivro);
 app.use("/favoritos", rotaFavorito);
-app.use("/imagens", express.static("imagens"));
 
 
 const port = 8000
