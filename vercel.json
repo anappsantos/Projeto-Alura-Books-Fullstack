@@ -7,11 +7,5 @@
         "distDir": "build"
       }
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/alura-books/$1"
-    }
   ]
 }
