@@ -10,7 +10,7 @@ function deletaFavoritoPorId(id) {
     const idString = String(id);
 
     const favoritosFiltrados = favoritos.filter( favorito => favorito.id !== idString)
-    fs.writeFileSync("favoritos.json", JSON.stringify(favoritosFiltrados))
+    // fs.writeFileSync("favoritos.json", JSON.stringify(favoritosFiltrados))
 }
 
 function insereFavorito(id) {
@@ -26,7 +26,7 @@ function insereFavorito(id) {
         // 3. INSERE E GRAVA
         if (livroInserido) {
             const favoritosAtualizados = [...favoritos, livroInserido];
-            fs.writeFileSync("../favoritos.json", JSON.stringify(favoritosAtualizados));
+            // fs.writeFileSync("../favoritos.json", JSON.stringify(favoritosAtualizados));
         }
     } catch (error) {
         // Se qualquer coisa falhar (leitura, escrita, ou busca), 

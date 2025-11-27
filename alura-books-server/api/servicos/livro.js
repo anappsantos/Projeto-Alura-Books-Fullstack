@@ -22,7 +22,7 @@ function insereLivro(livroNovo) {
     };
 
     const novaListaDeLivros = [...livros, novoLivro]
-    fs.writeFileSync("../livros.json", JSON.stringify(novaListaDeLivros))
+    // fs.writeFileSync("../livros.json", JSON.stringify(novaListaDeLivros))
 }
 
 function modificaLivro(modificacoes, id) {
@@ -38,14 +38,14 @@ function modificaLivro(modificacoes, id) {
 
     livrosAtuais[indiceModificado] = conteudoMudado
 
-    fs.writeFileSync("../livros.json", JSON.stringify(livrosAtuais))
+    // fs.writeFileSync("../livros.json", JSON.stringify(livrosAtuais))
 }
 
 function deleteLivroPorId(id) {
     const livros = JSON.parse(fs.readFileSync("../livros.json", 'utf8'));
 
     const livrosFiltrados = livros.filter(livro => livro.id!== id);
-    fs.writeFileSync("../livros.json", JSON.stringify(livrosFiltrados));
+    // fs.writeFileSync("../livros.json", JSON.stringify(livrosFiltrados));
 }
 
 module.exports = {
