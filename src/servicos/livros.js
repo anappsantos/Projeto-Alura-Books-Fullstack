@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const livrosAPI = axios.create({baseURL: "https://projeto-alura-books-fullstack-qdom-nz1xwtgo8.vercel.app/"});
+const livrosAPI = axios.create({baseURL: "https://projeto-alura-books-fullstack-bgsl.vercel.app/"});
 
 async function getLivros() {
     const response = await livrosAPI.get("/livros")

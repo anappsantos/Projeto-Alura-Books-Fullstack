@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const favoritosAPI = axios.create({baseURL: "https://projeto-alura-books-fullstack-qdom-nz1xwtgo8.vercel.app/favoritos"});
+const favoritosAPI = axios.create({baseURL: "https://projeto-alura-books-fullstack-bgsl.vercel.app/favoritos"});
 
 async function getFavoritos() {
     const response = await favoritosAPI.get("/")
