@@ -1,10 +1,12 @@
 {
   "name": "alura-books-server",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node api/index.js"
   },
+  "keywords": [],
   "author": "Ana Paula Santos",
   "license": "ISC",
   "dependencies": {
