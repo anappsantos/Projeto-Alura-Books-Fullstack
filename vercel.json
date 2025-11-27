@@ -1,0 +1,17 @@
+{
+  "builds": [
+    {
+      "src": "alura-books/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/alura-books/$1"
+    }
+  ]
+}
