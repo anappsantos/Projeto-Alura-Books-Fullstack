@@ -16,8 +16,8 @@ function deletaFavoritoPorId(id) {
 function insereFavorito(id) {
     try {
         // 1. LÊ OS ARQUIVOS
-        const livros = JSON.parse(fs.readFileSync("livros.json"));
-        const favoritos = JSON.parse(fs.readFileSync("favoritos.json"));
+        const livros = JSON.parse(fs.readFileSync("../livros.json", 'utf8'));
+        const favoritos = JSON.parse(fs.readFileSync("../favoritos.json", 'utf8'));
         
         // 2. BUSCA O LIVRO
         const idString = String(id);
@@ -26,7 +26,7 @@ function insereFavorito(id) {
         // 3. INSERE E GRAVA
         if (livroInserido) {
             const favoritosAtualizados = [...favoritos, livroInserido];
-            fs.writeFileSync("favoritos.json", JSON.stringify(favoritosAtualizados));
+            fs.writeFileSync("../favoritos.json", JSON.stringify(favoritosAtualizados));
         }
     } catch (error) {
         // Se qualquer coisa falhar (leitura, escrita, ou busca), 

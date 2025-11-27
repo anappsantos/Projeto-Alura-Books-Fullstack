@@ -1,11 +1,11 @@
 const fs = require ("fs")
 
 function getTodosLivros() {
- return JSON.parse( fs.readFileSync("livros.json"))
+ return JSON.parse(fs.readFileSync("../livros.json", 'utf8'))
 }
 
 function getLivroPorId(id) {
-    const livros = JSON.parse(fs.readFileSync("livros.json"))
+    const livros = JSON.parse(fs.readFileSync("../livros.json", 'utf8'));
 
     const livroFiltrado = livros.find( livro => livro.id ===id)
     // [{id: 2, nome: "Livro irado"}] Esse seria o resultado nesse caso
@@ -14,7 +14,7 @@ function getLivroPorId(id) {
 }
 
 function insereLivro(livroNovo) {
-    const livros = JSON.parse(fs.readFileSync("livros.json"));
+    const livros = JSON.parse(fs.readFileSync("../livros.json", 'utf8'));
 
     const novoLivro = {
         id: String(livroNovo.id),
@@ -22,11 +22,11 @@ function insereLivro(livroNovo) {
     };
 
     const novaListaDeLivros = [...livros, novoLivro]
-    fs.writeFileSync("livros.json", JSON.stringify(novaListaDeLivros))
+    fs.writeFileSync("../livros.json", JSON.stringify(novaListaDeLivros))
 }
 
 function modificaLivro(modificacoes, id) {
-    let livrosAtuais = JSON.parse(fs.readFileSync("livros.json"))
+    let livrosAtuais = JSON.parse(fs.readFileSync("../livros.json", 'utf8'));
     const indiceModificado = livrosAtuais.findIndex(livro => livro.id ===id);
      if (indiceModificado === -1) {
     throw new Error("Livro não encontrado")
@@ -38,14 +38,14 @@ function modificaLivro(modificacoes, id) {
 
     livrosAtuais[indiceModificado] = conteudoMudado
 
-    fs.writeFileSync("livros.json", JSON.stringify(livrosAtuais))
+    fs.writeFileSync("../livros.json", JSON.stringify(livrosAtuais))
 }
 
 function deleteLivroPorId(id) {
-    const livros = JSON.parse(fs.readFileSync("livros.json"));
+    const livros = JSON.parse(fs.readFileSync("../livros.json", 'utf8'));
 
     const livrosFiltrados = livros.filter(livro => livro.id!== id);
-    fs.writeFileSync("livros.json", JSON.stringify(livrosFiltrados));
+    fs.writeFileSync("../livros.json", JSON.stringify(livrosFiltrados));
 }
 
 module.exports = {
