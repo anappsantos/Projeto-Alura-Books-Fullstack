@@ -14,6 +14,4 @@ app.use("/favoritos", rotaFavorito);
 
 const port = 8000
 
-app.listen(port, () => {
-    console.log(`Escutando a porta ${port}`)
-})
+module.exports = app
