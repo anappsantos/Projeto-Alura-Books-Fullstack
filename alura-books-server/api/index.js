@@ -15,7 +15,11 @@ app.use(cors({
 app.use("/livros", rotaLivro);
 app.use("/favoritos", rotaFavorito);
 
+// Linhas para o servidor funcionar localmente
+const port = 8000 
 
-const port = 8000
+app.listen(port, () => {
+    console.log(`Escutando a porta ${port}`)
+})
 
 module.exports = app

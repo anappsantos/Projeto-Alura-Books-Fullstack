@@ -1,23 +1,27 @@
-const fs = require ("fs")
+const fs = require ("fs");
+const path = require("path");
+const caminhoFavoritos = path.join(__dirname, '..', 'favoritos.json');
+const caminhoLivros = path.join(__dirname, '..', 'livros.json');
+
 
 function getTodosFavoritos() {
- return JSON.parse( fs.readFileSync("favoritos.json") )
+ return JSON.parse( fs.readFileSync(caminhoFavoritos, 'utf8') );
 }
 
 function deletaFavoritoPorId(id) {
-    const favoritos = JSON.parse( fs.readFileSync("favoritos.json") )
+    const favoritos = JSON.parse( fs.readFileSync(caminhoFavoritos, 'utf8') );
 
     const idString = String(id);
 
     const favoritosFiltrados = favoritos.filter( favorito => favorito.id !== idString)
-    // fs.writeFileSync("favoritos.json", JSON.stringify(favoritosFiltrados))
+    fs.writeFileSync(caminhoFavoritos, JSON.stringify(favoritosFiltrados));
 }
 
 function insereFavorito(id) {
     try {
         // 1. LÊ OS ARQUIVOS
-        const livros = JSON.parse(fs.readFileSync("../livros.json", 'utf8'));
-        const favoritos = JSON.parse(fs.readFileSync("../favoritos.json", 'utf8'));
+        const livros = JSON.parse(fs.readFileSync(caminhoLivros, 'utf8')); 
+        const favoritos = JSON.parse(fs.readFileSync(caminhoFavoritos, 'utf8'));
         
         // 2. BUSCA O LIVRO
         const idString = String(id);
@@ -26,7 +30,7 @@ function insereFavorito(id) {
         // 3. INSERE E GRAVA
         if (livroInserido) {
             const favoritosAtualizados = [...favoritos, livroInserido];
-            // fs.writeFileSync("../favoritos.json", JSON.stringify(favoritosAtualizados));
+            fs.writeFileSync(caminhoFavoritos, JSON.stringify(favoritosAtualizados));
         }
     } catch (error) {
         // Se qualquer coisa falhar (leitura, escrita, ou busca), 
