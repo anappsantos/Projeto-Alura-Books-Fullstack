@@ -6,12 +6,14 @@ const router = Router ()
 
 router.get("/", getLivros)
 
-router.get("/", getLivro)
+router.get("/:id", getLivro)
 
-router.post("/:id", postLivro)
+router.post("/", postLivro)
 
 router.patch("/:id", patchLivro)
 
 router.delete("/:id", deleteLivro);
+
+router.delete("/:id", deleteFavorito);
 
 module.exports = router
